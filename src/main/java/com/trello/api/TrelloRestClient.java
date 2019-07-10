@@ -3,6 +3,7 @@ package com.trello.api;
 import com.trello.api.interceptors.TrelloAuthInterceptor;
 import com.trello.api.services.BoardsService;
 import com.trello.api.services.CardsService;
+import com.trello.api.services.LabelsService;
 import com.trello.api.services.ListsService;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -17,6 +18,7 @@ public class TrelloRestClient {
     public BoardsService boardsService;
     public ListsService listsService;
     public CardsService cardsService;
+    public LabelsService labelsService;
 
 
     public TrelloRestClient() {
@@ -36,6 +38,7 @@ public class TrelloRestClient {
         boardsService = retrofit.create(BoardsService.class);
         listsService = retrofit.create(ListsService.class);
         cardsService = retrofit.create(CardsService.class);
+        labelsService = retrofit.create(LabelsService.class);
     }
 }
 

@@ -1,6 +1,5 @@
 package com.trello.ui.core;
 
-import org.omg.CORBA.TIMEOUT;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,7 +20,7 @@ public class BrowserFactory {
         logger.info("BROWSER STARTED");
     }
 
-  //  @AfterTest
+    @AfterTest
     public void tearDown(){
         driver.quit();
         logger.info("BROWSER CLOSED");

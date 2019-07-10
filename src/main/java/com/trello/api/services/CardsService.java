@@ -3,7 +3,6 @@ package com.trello.api.services;
 import com.trello.api.models.Card;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.*;
 
 public interface CardsService {
@@ -18,6 +17,8 @@ public interface CardsService {
     Call<ResponseBody> deleteCard(@Path("id") String id);
     //204
 
+    @PUT("cards/{id}")
+    Call<Card> updateCard(@Path("id") String id, @Query("name") String name);
 
 // todo все зависят от логина и открытия карточки
 }
