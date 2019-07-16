@@ -33,13 +33,21 @@ public class LabelApiTests {
     }
 
     @Test
+    public void createLabel() throws IOException {
+        Labels labels = new Labels(labelName, color, boardId);
+        Labels createdLabel = client.labelsService.createLabel(labels).execute().body();
+        Assert.assertNotNull(createdLabel, "Label wasn't created");
+        // labelId = createdLabel.id;
+    }
+
+    @Test
     public void getLabel() throws IOException {
         String getLabelName = client.labelsService.getLabel(labelId).execute().body().name;
         Assert.assertEquals(getLabelName, labelName, "Names are now the same");
     }
 
     @Test
-    public void updateLabel() throws IOException {
+    public void renameLabel() throws IOException {
         Labels updLabel = client.labelsService.updateLabel(labelId, "NEW NAME").execute().body();
         Assert.assertNotEquals(updLabel.name, labelName, "Label name wasn't changed");
     }
