@@ -7,6 +7,7 @@ import com.trello.ui.pages.LoginPage;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Epic("REGRESSION")
@@ -21,5 +22,14 @@ public class LoginTest extends BrowserFactory {
     public void login() throws InterruptedException {
         loginPage.open();
         loginPage.login("ivanovamarichka+6@gmail.com", "mbA7PyNj4LWYKb5");
+        Assert.assertTrue(loginPage.isOpened(), "isn't opened");
+    }
+
+    @Test
+    public void logout() {
+        loginPage.open();
+        loginPage.login("ivanovamarichka+6@gmail.com", "mbA7PyNj4LWYKb5");
+        boardPage.logout();
+        Assert.assertTrue(driver().getCurrentUrl().equals("https://trello.com/logged-out"), "logout failed");
     }
 }
