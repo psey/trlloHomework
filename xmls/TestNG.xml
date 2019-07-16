@@ -5,4 +5,9 @@
             <class name="regression.LoginTest"></class>
         </classes>
     </test>
+    <test name="CardActions">
+        <classes>
+            <class name="regression.CardActions"></class>
+        </classes>
+    </test>
 </suite>

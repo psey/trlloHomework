@@ -48,6 +48,7 @@ public class CardApiTests {
 
     }
 
+
     @Test(priority = 1)
     public void updateCard() throws IOException {
         Card updatedCard = client.cardsService.updateCard(cardId, "new name").execute().body();

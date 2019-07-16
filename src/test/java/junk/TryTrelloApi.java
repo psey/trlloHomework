@@ -15,7 +15,12 @@ public class TryTrelloApi {
     public void callIt() throws IOException, InterruptedException {
         Card card = new Card();
         card.name = "My New CARD 2";
-        Card createdCard = client.cardsService.createCard("5d1243d7c2b5517f63f3a07a", card).execute().body();
+        Card createdCard = client.cardsService.createCard("5d2dd38351e17317fd3d435e", card).execute().body();
         client.cardsService.deleteCard(createdCard.id).execute();
+        System.out.println(createdCard.id);
+        System.out.println(client.cardsService.getMembers(createdCard.id, "all").execute().body());
+        System.out.println(client.cardsService.getMembers("5d2de070650d9d14bc8c975a", "all").execute().body());
+        //     System.out.println();
+
     }
 }

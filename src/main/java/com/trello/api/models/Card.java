@@ -1,5 +1,7 @@
 package com.trello.api.models;
 
+import java.util.List;
+
 public class Card {
     public String id;
     public String desc;
@@ -7,6 +9,7 @@ public class Card {
     public String idList;
     public String name;
     public String url;
+    public List<String> idMembers;
     // @SerializeName
     // рефлексия - можно посомтреть приватную переменную в чужом классе
     public Card(){}
@@ -25,6 +28,7 @@ public class Card {
                 ", idList='" + idList + '\'' +
                 ", name='" + name + '\'' +
                 ", url='" + url + '\'' +
+                ", idMembers=" + idMembers +
                 '}';
     }
 }
